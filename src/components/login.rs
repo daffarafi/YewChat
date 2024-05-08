@@ -27,13 +27,27 @@ pub fn login() -> Html {
     };
 
     html! {
-       <div class="bg-gray-800 flex w-screen">
-            <div class="container mx-auto flex flex-col justify-center items-center">
-                <form class="m-4 flex">
-                    <input {oninput} class="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white" placeholder="Username" />
-                    <Link<Route> to={Route::Chat}> <button {onclick} disabled={username.len()<1} class="px-8 rounded-r-lg bg-violet-600	  text-white font-bold p-4 uppercase border-violet-600 border-t border-b border-r" >{"Go Chatting!"}</button></Link<Route>>
-                </form>
-            </div>
-        </div>
+      <div class="bg-gray-900 flex w-full min-h-screen items-center justify-center">
+          <div class="container mx-auto flex flex-col items-center justify-center">
+              <h1 class="text-3xl font-semibold text-white mb-6">{"Welcome to Chat App"}</h1>
+              
+              <form class="w-full max-w-sm flex items-center justify-center">
+                  <input 
+                      {oninput} 
+                      class="flex-1 rounded-l-full px-5 py-3 border-t border-b border-l text-gray-800 bg-white focus:outline-none focus:ring focus:border-blue-500 transition ease-in-out duration-200" 
+                      placeholder="Enter your username" 
+                  />
+                  <Link<Route> to={Route::Chat}>
+                      <button 
+                          {onclick} 
+                          disabled={username.len() < 1} 
+                          class="px-6 py-1 rounded-r-full bg-violet-700 text-white font-bold uppercase border-t border-b border-r border-violet-700 transition-colors duration-200 hover:bg-violet-600 disabled:opacity-50"
+                      >
+                          {"Go Chatting!"}
+                      </button>
+                  </Link<Route>>
+              </form>
+          </div>
+      </div>
     }
 }
